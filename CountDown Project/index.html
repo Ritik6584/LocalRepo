@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Bhim Rao Ambedkar Jayanti Countdown</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #a8dadc;
+  }
+  #container {
+    background-color: #003049;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  #countdown {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  .countdown-item {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .countdown-label {
+    font-size: 18px;
+    color: #666;
+  }
+  .countdown-value {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+  }
+  #event {
+    font-size: 24px;
+    font-weight:600;
+    color: #011627;
+    margin-bottom: 20px;
+    background-color: #8da9c4;
+    padding: 10px;
+    border-radius: 5px;
+    
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="event">Dr. Bhim Rao Ambedkar Jayanti Countdown :</div>
+  <div id="countdown"></div>
+</div>
+
+<script>
+  // Set the date to countdown to (Dr. Bhim Rao Ambedkar Jayanti - April 14)
+  const countdownDate = new Date("2024-04-14T00:00:00").getTime();
+
+  // Update the countdown every second
+  const timer = setInterval(function() {
+    // Get the current date and time
+    const now = new Date().getTime();
+
+    // Calculate the distance between now and the countdown date
+    const distance = countdownDate - now;
+
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the countdown
+    document.getElementById("countdown").innerHTML = `
+      <div class="countdown-item">
+        <span class="countdown-value">${days}</span>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value">${hours}</span>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value">${minutes}</span>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-item">
+        <span class="countdown-value">${seconds}</span>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    `;
+
+    // If the countdown is over, display a message
+    if (distance < 0) {
+      clearInterval(timer);
+      document.getElementById("countdown").innerHTML = "<div class='countdown-item'><span class='countdown-value'>Happy Dr. Bhim Rao Ambedkar Jayanti!</span></div>";
+    }
+  }, 1000);
+</script>
+</body>
+</html>
